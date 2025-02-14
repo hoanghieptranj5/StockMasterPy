@@ -1,0 +1,6 @@
+   {
+       "run_collect_all_stocks": false,
+       "run_recommender": false,
+       "run_filter_stocks": true,
+       "driver_path": "resources/chromedriver"
+   }
