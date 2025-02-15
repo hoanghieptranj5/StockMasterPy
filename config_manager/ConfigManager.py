@@ -5,7 +5,8 @@ class ConfigManager:
     def __init__(self, config_file):
         self._config = self._load_config(config_file)
 
-    def _load_config(self, config_file):
+    @staticmethod
+    def _load_config(config_file):
         try:
             with open(config_file, 'r') as file:
                 return json.load(file)

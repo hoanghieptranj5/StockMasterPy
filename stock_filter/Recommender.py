@@ -1,11 +1,12 @@
 import time
-from selenium.webdriver.common.by import By
-import pandas as pd
 
-from all_stocks_finder.AllStockFinderConstants import AllStockFinderConstants
+import pandas as pd
+from selenium.webdriver.common.by import By
+
 from selenium_driver import WebDriverManager
-from .StockFilterHelper import StockFilterHelper
 from .StockFilterConstants import StockFilterConstants
+from .StockFilterHelper import StockFilterHelper
+
 
 class Recommender:
     def __init__(self, driver_path: str):

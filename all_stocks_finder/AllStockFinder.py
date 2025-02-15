@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import pandas as pd
+from selenium.webdriver.remote.webelement import WebElement
 
 from all_stocks_finder.AllStockFinderConstants import AllStockFinderConstants
 from selenium_driver import WebDriverManager
@@ -11,7 +12,8 @@ class AllStockFinder:
         self.base_url = "https://www.cophieu68.vn/market/markets.php?id=^hose"
 
 
-    def scrape_stock_row(self, row):
+    @staticmethod
+    def scrape_stock_row(row: WebElement) -> dict[str, str]:
         try:
             # Extract stock data
             stock_data = {}
@@ -54,7 +56,7 @@ class AllStockFinder:
             return stock_data
         except Exception as e:
             print(f"Error scraping stock row: {str(e)}")
-            return None
+            raise
 
     def scrape_hose_stocks(self):
         # go to the page
@@ -64,7 +66,7 @@ class AllStockFinder:
         rows = self.driver_manager.find_elements_by_xpath('//*[@id="tbody"]//tr')
 
         # list to hold all stock data dictionaries
-        all_stock_data = []
+        all_stock_data: list[dict[str, str]] = []
 
         for idx, row in enumerate(rows):
             print(f'Processing row {idx + 1} of {len(rows)}...')

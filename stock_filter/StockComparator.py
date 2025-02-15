@@ -23,7 +23,7 @@ class StockComparator:
         # Add two new columns to the original dataset: 'Actual Price' and 'Percentage Change'
         merged_df['Actual Price'] = merged_df['price']
         merged_df['Percentage Change'] = merged_df['Percentage Change']
-        merged_df['Target Price'] = merged_df['Price']
+        merged_df.rename(columns={'Price': 'Target Price'}, inplace=True)
 
         # Select relevant columns to keep
         final_df = merged_df[

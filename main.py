@@ -1,5 +1,3 @@
-import json
-
 from all_stocks_finder import AllStockFinder
 from stock_filter import Recommender, StockComparator
 from config_manager import ConfigManager
@@ -18,5 +16,5 @@ if __name__ == '__main__':
         recommender.close_driver()
 
     if config.run_filter_stocks:
-        # StockComparator.compare()
+        StockComparator.compare()
         StockComparator.should_buy()

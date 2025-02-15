@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as ExpectedConditions
 
 from selenium.webdriver.support.select import Select
@@ -34,7 +35,7 @@ class WebDriverManager:
         except Exception as e:
             print(f"Error navigating to page: {e}")
 
-    def find_element_by_xpath(self, xpath):
+    def find_element_by_xpath(self, xpath: str) -> WebElement | None:
         try:
             element = self.driver.find_element(By.XPATH, xpath)
             return element
@@ -134,7 +135,7 @@ class WebDriverManager:
             print(f"Error waiting for element by XPath {xpath}: {str(e)}")
             return None
 
-    def find_elements_by_xpath(self, xpath):
+    def find_elements_by_xpath(self, xpath: str) -> list[WebElement]:
         try:
             elements = self.driver.find_elements(By.XPATH, xpath)
             if elements:
