@@ -16,5 +16,7 @@ if __name__ == '__main__':
         recommender.close_driver()
 
     if config.run_filter_stocks:
-        StockComparator.compare()
-        StockComparator.should_buy()
+        # StockComparator.compare()
+        # StockComparator.should_buy()
+
+        StockComparator.search_for_suggestions(['ads', 'dpm', 'hhv', 'hpg', 'mbb', 'vpb'])
